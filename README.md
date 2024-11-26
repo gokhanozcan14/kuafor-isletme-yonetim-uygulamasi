@@ -1,0 +1,1 @@
+# kuafor-isletme-yonetim-uygulamasi
