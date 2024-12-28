@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Appointments";
+    Layout = "_AdminLayout";
+}
+
+<h2>Appointments</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Appointment ID</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Staff</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.Id</td>
+            <td>@appointment.StartDate.ToString("yyyy-MM-dd HH:mm")</td>
+            <td>@appointment.EndDate.ToString("yyyy-MM-dd HH:mm")</td>
+            <td>@appointment.Staff.Name</td>
+            <td>
+                @if (appointment.IsRejected)
+                {
+                    <span>Rejected</span>
+                }
+                else if (appointment.IsApproved)
+                {
+                    <span>Approved</span>
+                }
+                else
+                {
+                    <span>Pending</span>
+                }
+            </td>
+            <td>
+                <form asp-action="ApproveAppointment" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="@appointment.Id" />
+                    <button type="submit" class="btn btn-success" @(appointment.IsRejected || appointment.IsApproved ? "disabled" : "")>Approve</button>
+                </form>
+                <form asp-action="RejectAppointment" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="@appointment.Id" />
+                    <button type="submit" class="btn btn-danger" @(appointment.IsRejected || appointment.IsApproved ? "disabled" : "")>Reject</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

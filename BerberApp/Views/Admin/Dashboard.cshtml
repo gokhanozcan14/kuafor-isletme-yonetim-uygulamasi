@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "_AdminLayout";
+}
+
+<h2>Admin Dashboard</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Staff</h5>
+                    <p class="card-text">Add, update, or remove staff members.</p>
+                    <a href="@Url.Action("Staff", "Admin")" class="btn btn-primary">Go to Staff</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Packages</h5>
+                    <p class="card-text">Add, update, or remove service packages.</p>
+                    <a href="@Url.Action("Package", "Admin")" class="btn btn-primary">Go to Packages</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Appointments</h5>
+                    <p class="card-text">View and manage appointments.</p>
+                    <a href="@Url.Action("Appointment", "Admin")" class="btn btn-primary">Go to Appointments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        margin-top: 20px;
+    }
+</style>

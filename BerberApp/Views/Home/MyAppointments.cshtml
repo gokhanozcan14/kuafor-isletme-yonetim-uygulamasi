@@ -1,0 +1,44 @@
+@model IEnumerable<BerberApp.Models.Appointment>
+
+@{
+    ViewData["Title"] = "My Appointments";
+}
+
+<h2>My Appointments</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Package</th>
+        <th>Staff</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.Package.Name</td>
+            <td>@appointment.Staff.Name</td>
+            <td>@appointment.StartDate.ToString("g")</td>
+            <td>@appointment.EndDate?.ToString("g")</td>
+            <td>
+                @if (appointment.IsApproved)
+                {
+                    <span class="text-success">Approved</span>
+                }
+                else if (appointment.IsRejected)
+                {
+                    <span class="text-danger">Rejected</span>
+                }
+                else
+                {
+                    <span class="text-warning">Pending</span>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

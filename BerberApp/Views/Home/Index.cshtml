@@ -1,0 +1,72 @@
+﻿@model PackageStaffViewModel
+
+@{
+    ViewData["Title"] = "Packages";
+    Layout = "_Layout";
+}
+
+<h2>Packages</h2>
+
+<div class="row">
+    @foreach (var package in Model.Packages)
+    {
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-img-top" style="height: 200px; overflow: hidden;">
+                    <img src="@package.ImageUrl" alt="Package Image"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@package.Name</h5>
+                    <p class="card-text">@package.Price.ToString("C")</p>
+                    <form asp-action="BookAppointment" method="post">
+                        <input type="hidden" name="PackageId" value="@package.Id"/>
+                        <div class="form-group">
+                            <label for="StaffId">Select Staff</label>
+                            <select name="StaffId" class="form-control">
+                                <option value="" disabled selected>Select a staff member</option>
+                                @foreach (var staff in Model.Staff)
+                                {
+                                    <option value="@staff.Id">@staff.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="StartDate">Select Date</label>
+                            <input type="date" name="StartDate" class="form-control" id="startDate" value="" onchange="updateEndDate()"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="StartTime">Select Time</label>
+                            <select name="StartTime" class="form-control" id="startTime" onchange="updateEndDate()">
+                                <option value="" disabled selected>Select a time</option>
+                                @for (int hour = 9; hour <= 18; hour++)
+                                {
+                                    <option value="@hour:00">@hour:00</option>
+                                }
+                            </select>
+                        </div>
+                        <input type="hidden" name="EndDate" id="endDate"/>
+                        <button type="submit" class="btn btn-primary mt-2">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    function updateEndDate() {
+        var startDate = document.getElementById('startDate').value;
+        var startTime = document.getElementById('startTime').value;
+
+        if (startDate && startTime) {
+            var startDateTime = new Date(startDate + 'T' + startTime);
+            var endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // Add 1 hour
+
+            var endDate = endDateTime.toISOString().substring(0, 10);
+            var endTime = endDateTime.toTimeString().substring(0, 5); // Get time in HH:MM format
+
+            document.getElementById('endDate').value = endDate + 'T' + endTime;
+        }
+    }
+</script>
