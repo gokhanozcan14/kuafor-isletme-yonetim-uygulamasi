@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BerberApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba2ea727875e0fa708eb586c847582f5b52cd756")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65d4deb1eeb8c0145bb0b2c8b067eac83474f0b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("BerberApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BerberApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

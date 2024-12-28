@@ -25,4 +25,12 @@
     <_ContentIncludedByDefault Remove="Views\Account\Register.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\ASUS\source\repos\gokhanozcan14\kuafor-isletme-yonetim-uygulamasi\BerberApp\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\ASUS\source\repos\gokhanozcan14\kuafor-isletme-yonetim-uygulamasi\BerberApp\.editorconfig" />
+  </ItemGroup>
+
 </Project>

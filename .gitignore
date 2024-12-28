@@ -1,0 +1,82 @@
+﻿# Visual Studio
+.vs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.designer.cs
+
+# Build results
+bin/
+obj/
+
+# Packages
+packages/
+
+# NuGet
+*.nupkg
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database files
+*.mdf
+*.ldf
+
+# Publish output
+.publish/
+
+# IIS Express
+/.vs/IISExpress/
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# Recycle Bin
+_ReSharper*/
+*~
+*.bak
+*.old
+*.orig
+*.rej
+*.sublime-workspace
+
+# DotNet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux specific
+*~
+
+# Other IDEs
+*.vscode/
+*.code-workspace
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Azure DevOps
+*.coverage
+*.coveragexml
+TestResults/
